@@ -5,6 +5,7 @@ open TriangleSprite
 open Terrain
 open Geometry
 open OpenTK.Graphics.OpenGL
+open TankSprite
 
 let private renderColoredPoint (point : ColoredPoint2d) = 
     let c = point.Color
@@ -41,6 +42,18 @@ let private renderTerrain (terrain: Terrain) =
 
     GL.End()
 
+let private renderTank (sprite : TankSprite) = 
+    PrimitiveType.Polygon |> GL.Begin
+    let tankBody = 
+        sprite.Body 
+        |> List.map (addPointToColoredPoint sprite.Position)
+
+    for point in tankBody do 
+        renderColoredPoint point
+    GL.End()
+
 let renderState (state: GameState) = 
     renderTerrain state.Terrain
     renderTriangleSprite state.TriangleSprite
+    renderTank state.PlayerTank
+    renderTank state.TargetTank

@@ -3,6 +3,7 @@
 open Physics
 open TriangleSprite
 open Terrain
+open TankSprite
 
 type GameRunning =
     | Continue
@@ -12,6 +13,8 @@ type GameState = {
     Running : GameRunning
     AspectRatio : float
     TriangleSprite : TriangleSprite
+    PlayerTank : TankSprite
+    TargetTank : TankSprite
     Terrain : Terrain
     TimeSinceLastUpdate : float<s>
 }
@@ -39,6 +42,8 @@ let initialGameState = {
     Running = Continue
     AspectRatio = 1.0
     TriangleSprite = TriangleSprite.initialTriangle
+    PlayerTank = TankSprite.create {X = 1.; Y = -1.5;} {R=0.0; G=0.0; B=1.0} 
+    TargetTank = TankSprite.create {X = -1.; Y = -1.5;} {R=1.0; G=0.0; B=0.0} 
     Terrain = Terrain.initialTerrain
     TimeSinceLastUpdate = 0.<s>
 }
