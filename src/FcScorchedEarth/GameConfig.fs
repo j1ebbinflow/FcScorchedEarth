@@ -7,6 +7,7 @@ open OpenTK.Graphics.OpenGL
 
 let onLoadSetup (game : GameWindow) = 
     game.VSync <- VSyncMode.On
+    
     GL.Enable(EnableCap.Blend)
     GL.BlendFunc(BlendingFactorSrc.SrcAlpha, BlendingFactorDest.One)
     GL.Enable(EnableCap.PointSprite)

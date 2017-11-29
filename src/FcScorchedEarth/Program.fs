@@ -5,7 +5,7 @@ open Domain
 [<EntryPoint>]
 let main _ = 
     let getAspectRatio (gw : GameWindow) = float gw.Width / float gw.Height
-    use game = new GameWindow(960, 960, GraphicsMode.Default, "Scorched Earth Clone")
+    use game = new GameWindow(700, 700, GraphicsMode.Default, "Scorched Earth Clone")
 
     let load _ = GameConfig.onLoadSetup game
 

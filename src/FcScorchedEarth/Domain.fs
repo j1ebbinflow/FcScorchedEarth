@@ -2,6 +2,7 @@
 
 open Physics
 open TriangleSprite
+open Terrain
 
 type GameRunning =
     | Continue
@@ -11,6 +12,7 @@ type GameState = {
     Running : GameRunning
     AspectRatio : float
     TriangleSprite : TriangleSprite
+    Terrain : Terrain
     TimeSinceLastUpdate : float<s>
 }
 
@@ -37,6 +39,7 @@ let initialGameState = {
     Running = Continue
     AspectRatio = 1.0
     TriangleSprite = TriangleSprite.initialTriangle
+    Terrain = Terrain.initialTerrain
     TimeSinceLastUpdate = 0.<s>
 }
 
